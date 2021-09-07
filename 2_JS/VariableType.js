@@ -11,6 +11,7 @@ console.log(c);
 console.log(`The variable ${c} is of the type ${typeof c}`);
 console.log(d);
 console.log(`The variable ${d} is of the type ${typeof d}`);
+console.log(b['one']);
 console.log(`The variable ${b['one']} is of the type ${typeof b['one']}`);
 console.log(str);
 console.log(`The variable ${str} is of the type ${typeof str}`);
