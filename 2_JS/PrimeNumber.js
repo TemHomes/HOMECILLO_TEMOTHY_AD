@@ -1,12 +1,15 @@
 var isPrime;
-n = 6;
-if (n === 1) {
+const prompt = require('prompt-sync')();
+const num = prompt('Enter a number: ');
+number = Number(num);
+
+if (number === 1) {
     isPrime = false;
-} else if (n === 2) {
+} else if (number === 2) {
     isPrime = true;
 } else {
-    for (var x = 2; x < n; x++) {
-        if (n % x === 0) {
+    for (var x = 2; x < number; x++) {
+        if (number % x === 0) {
             isPrime = false;
             break;
         } else {
@@ -14,4 +17,4 @@ if (n === 1) {
         }
     }
 }
-console.log(`${n} is a prime number? ${isPrime}`);
+console.log(`${number} is a prime number? ${isPrime}`);
