@@ -1,8 +1,16 @@
-var number = 1;
 var a = [1, 2, 3, 4, 5, 6];
 var b = { one: 1, "two": "two", three: [3] };
 var c;
 var d = null;
-console.log(typeof d);
-
-console.log(number.one);
+var str = "HELLO I AM A STRING";
+console.log(a);
+console.log(`The variable ${a} is of the type ${typeof a}`);
+console.log(b);
+console.log(`The variable ${b} is of the type ${typeof b}`);
+console.log(c);
+console.log(`The variable ${c} is of the type ${typeof c}`);
+console.log(d);
+console.log(`The variable ${d} is of the type ${typeof d}`);
+console.log(`The variable ${b['one']} is of the type ${typeof b['one']}`);
+console.log(str);
+console.log(`The variable ${str} is of the type ${typeof str}`);
