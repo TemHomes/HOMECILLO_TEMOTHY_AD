@@ -17,7 +17,7 @@ export class Exercise3Service {
         return;
     }
     hello(name: string) {
-        return "Hi there, " + name;
+        return `Hi there, ${name}!`;
     }
     prime(parsedNumber: number) {
         if (parsedNumber === 1) {
