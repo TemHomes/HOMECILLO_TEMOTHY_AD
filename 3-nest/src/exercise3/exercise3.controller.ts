@@ -5,6 +5,11 @@ import { Exercise3Service } from './exercise3.service';
 export class Exercise3Controller {
     constructor(private readonly e3: Exercise3Service){}
 
+    @Get('/helloWorld')
+    helloWorld() {
+        return this.e3.helloWorld();
+    }
+    
     @Get('/loopsTriangle/:height')
     loopsTriangle(@Param('height') height: string) {
         var parsedHeight = parseInt(height);
