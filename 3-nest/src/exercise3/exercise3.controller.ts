@@ -10,4 +10,15 @@ export class Exercise3Controller {
         var parsedHeight = parseInt(height);
         return this.e3.loopsTriangle(parsedHeight);
     }
+
+    @Get('/prime/:number')
+    prime(@Param('number') number: string) {
+        var parsedNumber = parseInt(number);
+        return this.e3.prime(parsedNumber);
+    }
+
+    @Get('/hello/:name')
+    hello(@Param('name') name: string) {
+        return this.e3.hello(name);
+    }
 }
