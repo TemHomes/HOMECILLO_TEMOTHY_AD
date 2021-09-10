@@ -3,7 +3,6 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class Exercise3Service {
     helloWorld(){
-        console.log("Hello Za Warudo!! Toki wo tomare!!!");
         return "Hello Za Warudo!! Toki wo tomare!!!";
     }
     loopsTriangle(height:number){
