@@ -78,7 +78,7 @@ export class UserService {
         if(completeInfo){
             this.users.set(id, newUser);
             return{
-                message: "Successfully edited details."
+                message: "Details successfully updated."
             }
         }else{
             return{
@@ -100,6 +100,9 @@ export class UserService {
             if(user.password != undefined){
                 this.users.get(id).setPassword(user?.password);
             }
+            return {
+                message: "Details successfully updated."
+            };
         }
         catch(err) {
             return {
