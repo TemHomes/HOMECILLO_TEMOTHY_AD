@@ -75,14 +75,14 @@ export class UserService {
         var completeInfo;
         newUser = new User(id, user.name, user.age, user.email, user.password);
         completeInfo = newUser.edit(user);
-        if(completeInfo){
+        if(completeInfo && this.users.has(id)){
             this.users.set(id, newUser);
             return{
                 message: "Details successfully updated."
             }
         }else{
             return{
-                message: "Incomplete details!"
+                message: "Incomplete details or user does not exist!"
             }
         }
     }
