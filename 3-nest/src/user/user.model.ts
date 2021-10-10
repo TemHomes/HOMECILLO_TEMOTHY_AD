@@ -1,3 +1,6 @@
+import { CRUDReturn } from './crud_return.interface';
+import { Helper } from './helper';
+
 export class User{
     private id:string;
     private name:string;
@@ -5,12 +8,15 @@ export class User{
     private email:string;
     private password:string;
 
-    constructor(id:string, name:string, age:number, email:string, password:string){
-        this.id = id;
+    constructor(name:string, age:number, email:string, password:string){
+        this.id = Helper.generateUID();
         this.name = name;
         this.age = age;
         this.email = email;
         this.password = password;
+    }
+    setID(id:string){
+        this.id = id;
     }
     setName(name:string){
         this.name = name;
@@ -24,23 +30,37 @@ export class User{
     setPassword(password:string){
         this.password = password;
     }
-    login(email:string, password:string){
-        if(this.email == email && this.password == password){
-            return true;
-        }else{
-            return false;
+    getID(){
+        return this.id;
+    }
+    search(searchKey:string): boolean{
+        var keys: Array<string> = Helper.describeClass(User);
+        keys = Helper.removeItemOnce(keys, 'password');
+        for(const key of keys){
+            if(`${this[key]}` === searchKey){
+                return true;
+            }
+        }
+        return false;
+    }
+    login(password:string): CRUDReturn{
+        try{
+            if(this.password === password){
+                return {
+                    success: true,
+                    data: this.toJson()
+                };
+            }else{
+                throw new Error("Incorrect credentials!")
+            }
+        }catch(err){
+            return {
+                success: false,
+                data: err.message
+            };
         }
     }
-    search(searchKey:string){
-        if(searchKey.toUpperCase() == this.name.toUpperCase() || searchKey.toUpperCase() == this.age.toString().toUpperCase() || 
-           searchKey.toUpperCase() == this.email.toUpperCase() || searchKey.toUpperCase() == this.id.toUpperCase()){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    edit(info:any){
+    checkContent(info:any): boolean{
         if(info.name == undefined || info.age == undefined || info.email == undefined || info.password == undefined){
             return false;
         }else{
@@ -53,6 +73,15 @@ export class User{
             name:this.name,
             age:this.age,
             email:this.email
+        };
+    }
+    toJsonWithPass(){
+        return {
+            id:this.id,
+            name:this.name,
+            age:this.age,
+            email:this.email,
+            password:this.password
         };
     }
 }

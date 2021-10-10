@@ -19,7 +19,7 @@ export class UserController {
     }
     @Post('/login')
     loginUser(@Body() body: any) {
-        return this.userService.loginUser(body);
+        return this.userService.login(body);
     }
     @Delete('/:id')
     removeUser(@Param("id") id:string) {
