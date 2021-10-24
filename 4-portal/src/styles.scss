@@ -1,0 +1,25 @@
+* {
+    margin: 100;
+    padding: 100;
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: rgb(14, 14, 54);
+    background: radial-gradient(circle, rgba(14, 14, 54, 1) 0%, rgba(14, 14, 54, 1) 33%, rgba(44, 0, 119, 1) 100%);
+    font-family: 'Roboto', sans-serif;
+}

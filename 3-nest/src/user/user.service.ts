@@ -31,7 +31,7 @@ export class UserService {
                 }
             });
             return {
-                success: true,
+                success: populatedData.length > 0,
                 data: populatedData
             }
         }catch(err){

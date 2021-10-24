@@ -1,0 +1,17 @@
+<div class="mainContent">
+    <h1>Registration</h1>
+    <div class="register">
+        <form class="inputs" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <input type="text" placeholder="Name" formControlName="fcName">
+            <input type="number" placeholder="Age" formControlName="fcAge">
+            <input type="email" placeholder="Email" formControlName="fcEmail">
+            <input type="password" placeholder="Password" formControlName="fcPassword">
+            <input type="password" placeholder="Confirm Password" formControlName="fcConfirmPassword">
+            <p>{{ error }}</p>
+            <p>{{ registerForm.status }}</p>
+            <button type="submit" [disabled]="!registerForm.valid">Register</button>
+
+        </form>
+    </div>
+    <button (click)="nav( 'login')">Login</button>
+</div>
