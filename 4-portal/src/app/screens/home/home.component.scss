@@ -23,27 +23,6 @@
     text-transform: uppercase;
 }
 
-.mainContent button {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #00638a;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    transition: .5s;
-    cursor: pointer;
-    width: 250px;
-}
-
-.mainContent button:hover {
-    color: black;
-    border-color: #72d7ff;
-    background: #72d7ff;
-}
-
 .mainContent ol {
     list-style-type: none;
     border: 0;
