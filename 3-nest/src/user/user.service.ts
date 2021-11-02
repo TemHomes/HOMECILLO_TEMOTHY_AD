@@ -11,10 +11,10 @@ export class UserService {
     private DB = admin.firestore();
 
     constructor(){
-        this.users = Helper.populate();
-        for(const user of this.users.values()){
-            this.saveUser(user);
-        }
+        //this.users = Helper.populate();
+        //for(const user of this.users.values()){
+            //.saveUser(user);
+        //}
     }
     async getAll(): Promise<CRUDReturn>{
         var populatedData = [];

@@ -13,7 +13,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private router:Router, private api: HttpClient) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAll();
+  }
 
   populatedData:any = [];
   
