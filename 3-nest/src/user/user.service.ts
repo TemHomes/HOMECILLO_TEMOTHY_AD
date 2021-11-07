@@ -239,28 +239,29 @@ export class UserService {
         try{
             var emailUsed = await this.emailExists(user.email);
             var validBody: {valid:boolean; data: string} = Helper.validBody(user);
+            
             if(validBody.valid){
-                if(user.name != undefined){
+                if(user.name != undefined || user.name != null){
                     await
                     this.DB.collection("users").doc(id).update({
                     name: user.name
                     });
                 }
-                if(user.age != undefined){
+                if(user.age != undefined || user.age != null){
                     await
                     this.DB.collection("users").doc(id).update({
                     age: user.age
                     });
                 }
-                if(user.email != undefined && !emailUsed){
+                if(user.email != undefined && !emailUsed || user.email != null){
                     await
                     this.DB.collection("users").doc(id).update({
                     email: user.email
                     });
-                }else if(user.email != undefined && emailUsed){
+                }else if(user.email != undefined && emailUsed || user.email != null){
                     throw new Error("Email already exists!");
                 }
-                if(user.password != undefined){
+                if(user.password != undefined || user.password != null){
                     await
                     this.DB.collection("users").doc(id).update({
                     password: user.password

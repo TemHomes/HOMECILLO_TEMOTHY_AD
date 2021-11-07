@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { environment } from 'src/environments/environment';
+import { ApiService } from 'src/app/shared/api.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private router:Router, private api: HttpClient) { }
+  constructor(private router:Router, private api: ApiService) { }
 
   registerForm: FormGroup = new FormGroup({
     fcName: new FormControl('', Validators.required),
@@ -54,12 +54,11 @@ export class RegisterComponent implements OnInit {
         email: this.registerForm.value.fcEmail,
         password: this.registerForm.value.fcPassword,
       };
-      result = await this.api.post(environment.API_URL+"/user/register", payload).toPromise();
+      result = await this.api.post("/user/register", payload);
     }
     if(result.success){
       this.nav('home');
     }else if(!result.success){
-      //I like using alerts kay para sure jud makit an sa user XD
       alert(result.data)
     }
   }

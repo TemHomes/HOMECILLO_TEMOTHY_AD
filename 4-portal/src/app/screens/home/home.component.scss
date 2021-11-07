@@ -44,3 +44,37 @@
     background: #72d7ff;
     transition: .5s;
 }
+
+.mainContent input[type="email"],
+.mainContent input[type="text"],
+.mainContent input[type="number"],
+.mainContent input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #00638a;
+    padding: 14px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    transition: .5s;
+}
+
+.mainContent input[type=number]::-webkit-inner-spin-button,
+.mainContent input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.mainContent input[type="email"]:hover,
+.mainContent input[type="number"]:hover,
+.mainContent input[type="text"]:hover,
+.mainContent input[type="password"]:hover,
+.mainContent input[type="email"]:focus,
+.mainContent input[type="password"]:focus,
+.mainContent input[type="number"]:focus,
+.mainContent input[type="text"]:focus {
+    width: 300px;
+    border-color: #72d7ff;
+}

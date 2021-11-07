@@ -12,6 +12,7 @@ import { ApiService } from './shared/api.service';
 import { SharedModule } from './shared/shared.module';
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    NgbModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

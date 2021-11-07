@@ -1,6 +1,89 @@
 <div class="mainContent">
     <h1>All Users</h1>
-    <ol *ngFor="let user of populatedData">
+
+    <ol *ngFor="let user of populatedData" (click)="getUser(user)" (click)="open(content)">
+        <ng-template #content let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Profile</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <h4>ID: {{user.id}}</h4>
+                        <h4>Name: {{user.name}}</h4>
+                        <h4>Age: {{user.age}}</h4>
+                        <h4>Email: {{user.email}}</h4>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="open(content3)" (click)="modal.close('Edit click')">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="open(content2)" (click)="modal.close('Delete click')">Delete</button>
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+            </div>
+        </ng-template>
+        <ng-template #content2 let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Delete </h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <h4>Are you sure you want to delete user {{user.name}}?</h4>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="delete(user.id)" (click)="modal.close('Confirm click')">Confirm</button>
+                <button type="button" class="btn btn-outline-dark" (click)="open(content)" (click)="modal.close('Close click')">Cancel</button>
+            </div>
+        </ng-template>
+        <ng-template #content3 let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Edit Profile</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form class="inputs" [formGroup]="editForm">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputText">Name</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Name Input" aria-describedby="inputText" formControlName="fcName">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputText">Age</span>
+                        </div>
+                        <input type="number" class="form-control" aria-label="Age Input" aria-describedby="inputText" formControlName="fcAge">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputText">Email</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Email Input" aria-describedby="inputText" formControlName="fcEmail">
+                    </div>
+                    <div class=" input-group mb-3 ">
+                        <div class="input-group-prepend ">
+                            <span class="input-group-text " id="inputText ">Password</span>
+                        </div>
+                        <input type="password" class="form-control " aria-label="Password Input " aria-describedby="inputText " formControlName="fcPassword">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer ">
+                <button type="button " class="btn btn-primary " (click)="edit(user.id) " (click)="modal.close( 'Delete click') ">Confirm</button>
+                <button type="button " class="btn btn-outline-dark " (click)="open(content) " (click)="modal.close( 'Delete click') ">Back</button>
+            </div>
+        </ng-template>
         <li>Name: {{user.name}}</li>
         <li>Age: {{user.age}}</li>
         <li>Email: {{user.email}}</li>
