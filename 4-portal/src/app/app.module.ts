@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './layouts/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     RegisterComponent,
     DefaultLayoutComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     HttpClientModule,

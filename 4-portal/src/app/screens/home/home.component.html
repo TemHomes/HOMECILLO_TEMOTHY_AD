@@ -5,17 +5,34 @@
         <ng-template #content let-modal>
             <div class="modal-header">
                 <h4 class="modal-title" id="modal-basic-title">Profile</h4>
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <h4>ID: {{user.id}}</h4>
-                        <h4>Name: {{user.name}}</h4>
-                        <h4>Age: {{user.age}}</h4>
-                        <h4>Email: {{user.email}}</h4>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">ID</span>
+                            </div>
+                            <input readonly class="form-control" [value]="user.id">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">NAME</span>
+                            </div>
+                            <input readonly class="form-control" [value]="user.name">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">AGE</span>
+                            </div>
+                            <input readonly class="form-control" [value]="user.age">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">EMAIL</span>
+                            </div>
+                            <input readonly class="form-control" [value]="user.email">
+                        </div>
                     </div>
                 </form>
             </div>
@@ -28,9 +45,6 @@
         <ng-template #content2 let-modal>
             <div class="modal-header">
                 <h4 class="modal-title" id="modal-basic-title">Delete </h4>
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
             <div class="modal-body">
                 <form>
@@ -47,35 +61,26 @@
         <ng-template #content3 let-modal>
             <div class="modal-header">
                 <h4 class="modal-title" id="modal-basic-title">Edit Profile</h4>
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
             <div class="modal-body">
                 <form class="inputs" [formGroup]="editForm">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputText">Name</span>
+                            <span class="input-group-text" id="inputText">NAME</span>
                         </div>
                         <input type="text" class="form-control" aria-label="Name Input" aria-describedby="inputText" formControlName="fcName">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputText">Age</span>
+                            <span class="input-group-text" id="inputText">AGE</span>
                         </div>
                         <input type="number" class="form-control" aria-label="Age Input" aria-describedby="inputText" formControlName="fcAge">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputText">Email</span>
+                            <span class="input-group-text" id="inputText">EMAIL</span>
                         </div>
                         <input type="text" class="form-control" aria-label="Email Input" aria-describedby="inputText" formControlName="fcEmail">
-                    </div>
-                    <div class=" input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text " id="inputText ">Password</span>
-                        </div>
-                        <input type="password" class="form-control " aria-label="Password Input " aria-describedby="inputText " formControlName="fcPassword">
                     </div>
                 </form>
             </div>

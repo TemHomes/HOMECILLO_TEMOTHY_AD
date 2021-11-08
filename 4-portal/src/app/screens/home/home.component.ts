@@ -9,17 +9,13 @@ import { Subscription } from 'rxjs';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
+  
 })
 export class HomeComponent implements OnInit {
   populatedData:any = [];
   closeResult = '';
   error: string = '';
-  /*
-  fcName = new FormControl();
-  fcAge = new FormControl();
-  fcEmail = new FormControl();
-  fcPassword = new FormControl();
-  */
+  
   editForm: FormGroup = new FormGroup({
     fcName: new FormControl('', Validators.required),
     fcAge: new FormControl('', Validators.min(1)),
@@ -85,7 +81,6 @@ export class HomeComponent implements OnInit {
         });
     }
     
-
     if(result.success){
       this.getAll();
     }else if(!result.success){
@@ -94,7 +89,7 @@ export class HomeComponent implements OnInit {
   }
   
   open(content: any) {
-    this.modalService.open(content, { windowClass: 'dark-modal' });
+    this.modalService.open(content, {windowClass: 'dark-modal'});
   }
 
   private getDismissReason(reason: any): string {
@@ -108,6 +103,9 @@ export class HomeComponent implements OnInit {
   }
 
   getUser(user:any){
+    this.editForm.patchValue({
+      fcPassword: ''
+    });
     this.editForm.patchValue({
       fcName: user.name,
       fcAge: user.age,
