@@ -64,22 +64,12 @@ export class HomeComponent implements OnInit {
     
     this.error = '';
     
-    if (this.editForm.value.fcPassword.length > 0) {
-      result = await this.api.patch(id,
-        {
-          name: this.editForm.value.fcName,
-          age: this.editForm.value.fcAge,
-          email: this.editForm.value.fcEmail,
-          password: this.editForm.value.fcPassword,
-        });
-    }else{
-      result = await this.api.patch(id,
-        {
-          name: this.editForm.value.fcName,
-          age: this.editForm.value.fcAge,
-          email: this.editForm.value.fcEmail
-        });
-    }
+    result = await this.api.patch(id,
+    {
+      name: this.editForm.value.fcName,
+      age: this.editForm.value.fcAge,
+      email: this.editForm.value.fcEmail
+    });
     
     if(result.success){
       this.getAll();
